@@ -1,0 +1,153 @@
+{% extends "base.html" %} {% block content %}
+
+<center><h2>Food Classifier</h2>
+<style> .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #2dcba7;
+   color: black;
+   text-align: center;
+   font-size: 25px;
+   font-weight: bold;
+}</style>
+
+<div>
+   <center> <form id="upload-file" method="post" enctype="multipart/form-data">
+        <label for="imageUpload" class="upload-label">
+            Choose Food...
+        </label>
+        <center> <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Analyze Food</button>
+        </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+
+    <h3 id="result">
+	
+        <span> </span>
+    </h3>
+	
+</div>
+<h3 id="result3">
+
+
+
+
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title:{
+		text: "Nutirion CHart for Multiple Ages"
+	},	
+	axisY: {
+		title: "Nutrition Grams",
+		titleFontColor: "#4F81BC",
+		lineColor: "#4F81BC",
+		labelFontColor: "#4F81BC",
+		tickColor: "#4F81BC"
+	},
+	axisY2: {
+		title: "Nutrition Grams",
+		titleFontColor: "#C0504E",
+		lineColor: "#C0504E",
+		labelFontColor: "#C0504E",
+		tickColor: "#C0504E"
+	},	
+	toolTip: {
+		shared: true
+	},
+	legend: {
+		cursor:"pointer",
+		itemclick: toggleDataSeries
+	},
+	data: [{
+		type: "column",
+		name: "Protein",
+		legendText: "Protein",
+		showInLegend: true, 
+		dataPoints:[
+			{ label: "20-30", y: 130.21 },
+			{ label: "30-40", y: 120.25 },
+			{ label: "40-50", y: 110.20 },
+			{ label: "50-60", y: 90.77 }
+					]
+	},
+	
+{
+		type: "column",
+		name: "Fat",
+		legendText: "Fat",
+		showInLegend: true, 
+		dataPoints:[
+			{ label: "20-30", y: 91.21 },
+			{ label: "30-40", y: 85.25 },
+			{ label: "40-50", y: 75.20 },
+			{ label: "50-60", y: 60.77 }
+					]
+	},
+{
+		type: "column",
+		name: "carbs",
+		legendText: "Carbs",
+		showInLegend: true, 
+		dataPoints:[
+			{ label: "20-30", y: 343.21 },
+			{ label: "30-40", y: 320.25 },
+			{ label: "40-50", y: 300.20 },
+			{ label: "50-60", y: 260.77 }
+					]
+	},
+
+{
+		type: "column",	
+		name: "Fiber",
+		legendText: "Fiber",
+		axisYType: "secondary",
+		showInLegend: true,
+		dataPoints:[
+			{ label: "20-30", y: 30.21 },
+			{ label: "30-40", y: 28.25 },
+			{ label: "40-50", y: 25.20 },
+			{ label: "50-60", y: 20.77 }
+					]
+
+	}]
+});
+chart.render();
+
+function toggleDataSeries(e) {
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else {
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
+
+{% endblock %}

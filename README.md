@@ -1,2 +1,2 @@
-# Indian food Classification
-  this is machine learning project that predicts calorie and nutrients from input food image.
+# Indian food classification based on calorie and nutrients  using deep learning
+ This is deep learning project that identify food images and predict calorie and nutrients in it.
